@@ -23,3 +23,7 @@ It mostly shows ability to use API's to fetch and display information in a clean
 This is my first independent project. My goal was to create a game where the user has to guess which of the two given songs is more popular (or older in the alternative gamemode).
 This project taught me to start something from scratch, to set my own goals and plan the steps I need to complete them. I used JavaScript for the main game aspect and PHP for secure communication with the Spotify API.
 The game is fully functional, although not completely finished. Unfortunately to play it for yourself you will have to run the website yourself with your own Spotify API credentials as I do not currently have a way to host this game anywhere online.
+
+<h3>JustJumpforKids</h3>
+I worked on developing a tool to create and manage invoices and quotations for JustJumpforKids, a small business that rents out bouncy castles and other childrens entertainment.
+Since this is a custom tool for this company and it is currently in use on their admin backend I can't share the actual project on here.

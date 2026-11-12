@@ -1,0 +1,226 @@
+.posts, .results{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    overflow-y: scroll;
+    padding: 20px 0;
+}
+
+.post{
+    background-color: white;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.26);
+    width: 50vw;
+    height: 300px;
+    flex-shrink: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    .postHead{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        overflow: hidden;
+        .postTitle{
+            font-size: clamp(1.4em,2.3vw,2.3em);
+            max-height: clamp(1.4em,2.3vw,2.3em);
+            word-break: break-all;
+            overflow: hidden;
+        }
+        .postDate{
+            font-size: 0.75em;
+        }
+        .postAuthor{
+            color: gray;
+        }
+    }
+    .postContent{
+        -webkit-column-width: 80vw;
+        column-width: 80vw;
+        height: 70%;
+        overflow: hidden;
+        scrollbar-gutter: stable;
+        ol , ul{
+            list-style-position: inside;
+        }
+    }
+    .postText{
+        margin-top: 10px;
+        width: 100%;
+        white-space: pre;
+        text-wrap: auto;
+        line-break: anywhere;
+        p:after {
+            content:"";
+            display:inline-block;
+            width:0px;
+        }
+    }
+}
+
+.pagination{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.3rem;
+
+    .endPage{
+        color: rgb(180, 180, 180);
+    }
+
+    a{
+        text-decoration: none;
+        color: rgb(89, 29, 124);
+    }
+
+    .pageNum{
+        border: 1px solid #C07BE8;
+        padding: 4px 11px;
+        border-radius: 50%;
+
+        &:active{
+            color: rgb(89, 29, 124);
+        }
+
+        &:not(.active):hover{
+            background-color: #c9afd8;
+        }
+    }
+
+    .active{
+        color: white;
+        background-color: #C07BE8;
+    }
+}
+
+.fullPost{
+    overflow-y: scroll;
+    &>.post{
+        width: min(70vw, 750px);
+        height: fit-content;
+        margin: 0 auto;
+
+        .postTitle{
+            max-height: none;
+        }
+    }
+}
+
+.edit{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 70;
+    background-color: white;
+    min-height: 400px;
+    width: 70vw;
+    border: 1px solid #C07BE8;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(65, 65, 65);
+}
+
+.reply{
+    @extend .edit;
+
+    min-height: 100px;
+    width: min(700px, 60vw);
+}
+
+.delete{
+    @extend .edit;
+
+    width: min(700px, 60vw);
+    min-height: 100px;
+    border: 1px solid grey;
+    #deleteConfirmMsg{
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 5px;
+    }
+}
+
+.readmore{
+    color: blue;
+}
+
+#comments{
+    width: 60vw;
+    margin: 20px auto;
+
+    #commentForm{
+        width: clamp(230px, 85%, 670px), ;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        textarea{
+            width: 100%;
+            min-height: 70px;
+            resize: vertical;
+        }
+        button{
+            width: clamp(75px, 10vw, 100px);
+            height: 30px;
+            align-self: flex-end;
+        }
+    }
+
+    #allComments{
+        list-style-type: none;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .replies:has(li){
+        list-style-type: none;
+        padding-left: 25px;
+        margin-bottom: 20px;
+        border-left: 2px solid rgb(175, 175, 175);
+    }
+
+    .comment{
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.26);
+
+        .commentAuthor{
+            font-weight: bold;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            .dateTime{
+                font-weight: normal;
+                font-size: 0.75rem;
+                color: gray;
+            }
+        }
+
+        .commentContent{
+            margin-top: 10px;
+            .commentText{
+                white-space: pre;
+                text-wrap: auto;
+                word-break: break-all;
+                overflow-y: scroll;
+                
+                .deletedComment{
+                    font-style: italic;
+                    color: rgb(100, 98, 98);
+                }
+            }
+        }
+    }
+
+    .replyComment{
+        @extend .comment;
+        background-color: rgb(245, 242, 242);
+        margin-top: 8px;
+    }
+}

@@ -1,0 +1,8 @@
+RewriteEngine on
+
+RewriteBase /tim/Codecrashers/PHP/eindopdracht
+RewriteRule ^post/(\d+)/?$ post.php?postId=$1
+RewriteRule ^post/(\d+)/(edit|delete|delComment=\d*|reply=\d*)$ post.php?postId=$1&$2
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php

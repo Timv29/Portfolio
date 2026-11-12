@@ -1,0 +1,93 @@
+@use "colors.scss" as colors;
+header{
+    grid-area: header;
+    background-color: colors.$headerColor;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    z-index: 10;
+    box-shadow: 0 0 5px black;
+
+    .logoName{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    h1{
+        color: white;
+        font-size: 3em;
+    }
+
+    .login{
+        text-align: end;
+    }
+
+    #loginForm, #logoutForm{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+
+        .loginInputs{
+            display: flex;
+            justify-content: flex-end;
+            flex-flow: row wrap;
+        }
+
+        input, button{
+            box-sizing: border-box;
+            border: 1px solid rgb(143, 142, 142)
+        }
+
+        input{
+            height: 30px;
+            width: clamp(130px, 20vw, 220px);
+            border-radius: 5px;
+            text-indent: 5px;
+        }
+        button{
+            height: 30px;
+            width: clamp(75px, 10vw, 100px);
+        }
+    }
+
+    .error{
+        margin-left: 2px;
+        color: rgb(255, 0, 0);
+    }
+
+    .regLink{
+        margin-left: 2px;
+    }
+
+    .logout{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: end;
+        align-items: center;
+
+        p{
+            text-align: end;
+            color: white;
+            font-size: clamp(1.25em, 3vw, 1.5em);
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgb(110, 37, 133);
+        }
+    }
+}
+
+#hideButton{
+    display: none;
+}
+
+#sitename a{
+    color: white;
+    text-decoration: none;
+}

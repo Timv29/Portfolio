@@ -1,0 +1,707 @@
+header {
+  grid-area: header;
+  background-color: #C07BE8;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-between;
+  padding: 0 3vw;
+  box-sizing: border-box;
+  z-index: 10;
+  box-shadow: 0 0 5px black;
+}
+header .logoName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header h1 {
+  color: white;
+  font-size: 3em;
+}
+header .login {
+  text-align: end;
+}
+header #loginForm, header #logoutForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+header #loginForm .loginInputs, header #logoutForm .loginInputs {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row wrap;
+}
+header #loginForm input, header #loginForm button, header #logoutForm input, header #logoutForm button {
+  box-sizing: border-box;
+  border: 1px solid rgb(143, 142, 142);
+}
+header #loginForm input, header #logoutForm input {
+  height: 30px;
+  width: clamp(130px, 20vw, 220px);
+  border-radius: 5px;
+  text-indent: 5px;
+}
+header #loginForm button, header #logoutForm button {
+  height: 30px;
+  width: clamp(75px, 10vw, 100px);
+}
+header .error {
+  margin-left: 2px;
+  color: rgb(255, 0, 0);
+}
+header .regLink {
+  margin-left: 2px;
+}
+header .logout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: end;
+  align-items: center;
+}
+header .logout p {
+  text-align: end;
+  color: white;
+  font-size: clamp(1.25em, 3vw, 1.5em);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(110, 37, 133);
+}
+
+#hideButton {
+  display: none;
+}
+
+#sitename a {
+  color: white;
+  text-decoration: none;
+}
+
+nav {
+  background-color: #CEBEE3;
+  grid-area: nav;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  position: relative;
+}
+nav #search #searchForm {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: center;
+  margin-top: 30px;
+}
+nav #search #searchForm input {
+  border: 1px solid darkgray;
+  border-right: none;
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  height: 35px;
+  width: clamp(100px, 10vw, 160px);
+  text-indent: 5px;
+}
+nav #search #searchForm button {
+  border: 1px solid darkgray;
+  border-left: none;
+  width: 35px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+nav #sort #sortForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  align-items: center;
+}
+nav #sort #sortForm .formField {
+  width: 90%;
+}
+nav #sort #sortForm .formField select {
+  width: 100%;
+}
+nav #sort #sortForm button {
+  width: 80%;
+}
+nav #sidebarButtons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+nav #sidebarButtons .navbutton {
+  width: 100%;
+  height: 40px;
+  background-color: #c2a0d3;
+}
+nav #sidebarButtons .navbutton a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  color: black;
+}
+nav #sidebarButtons .navbutton:hover {
+  background-color: rgb(176.0949640288, 132.1151079137, 198.0848920863);
+}
+nav #sidebarButtons .navbutton:active {
+  background-color: rgb(171.618705036, 125.1438848921, 194.8561151079);
+}
+nav #lastVisit {
+  position: absolute;
+  bottom: 15px;
+  text-align: center;
+  width: 100%;
+  color: rgb(83, 83, 83);
+}
+nav #hideButton {
+  display: none;
+}
+
+.posts, .results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow-y: scroll;
+  padding: 20px 0;
+}
+
+.post {
+  background-color: white;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.26);
+  width: 50vw;
+  height: 300px;
+  flex-shrink: 0;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.post .postHead {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.post .postHead .postTitle {
+  font-size: clamp(1.4em, 2.3vw, 2.3em);
+  max-height: clamp(1.4em, 2.3vw, 2.3em);
+  word-break: break-all;
+  overflow: hidden;
+}
+.post .postHead .postDate {
+  font-size: 0.75em;
+}
+.post .postHead .postAuthor {
+  color: gray;
+}
+.post .postContent {
+  -webkit-column-width: 80vw;
+  column-width: 80vw;
+  height: 70%;
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+.post .postContent ol, .post .postContent ul {
+  list-style-position: inside;
+}
+.post .postText {
+  margin-top: 10px;
+  width: 100%;
+  white-space: pre;
+  text-wrap: auto;
+  line-break: anywhere;
+}
+.post .postText p:after {
+  content: "";
+  display: inline-block;
+  width: 0px;
+}
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.3rem;
+}
+.pagination .endPage {
+  color: rgb(180, 180, 180);
+}
+.pagination a {
+  text-decoration: none;
+  color: rgb(89, 29, 124);
+}
+.pagination .pageNum {
+  border: 1px solid #C07BE8;
+  padding: 4px 11px;
+  border-radius: 50%;
+}
+.pagination .pageNum:active {
+  color: rgb(89, 29, 124);
+}
+.pagination .pageNum:not(.active):hover {
+  background-color: #c9afd8;
+}
+.pagination .active {
+  color: white;
+  background-color: #C07BE8;
+}
+
+.fullPost {
+  overflow-y: scroll;
+}
+.fullPost > .post {
+  width: min(70vw, 750px);
+  height: fit-content;
+  margin: 0 auto;
+}
+.fullPost > .post .postTitle {
+  max-height: none;
+}
+
+.edit, .delete, .reply {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 70;
+  background-color: white;
+  min-height: 400px;
+  width: 70vw;
+  border: 1px solid #C07BE8;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgb(65, 65, 65);
+}
+
+.reply {
+  min-height: 100px;
+  width: min(700px, 60vw);
+}
+
+.delete {
+  width: min(700px, 60vw);
+  min-height: 100px;
+  border: 1px solid grey;
+}
+.delete #deleteConfirmMsg {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.readmore {
+  color: blue;
+}
+
+#comments {
+  width: 60vw;
+  margin: 20px auto;
+}
+#comments #commentForm {
+  width: clamp(230px, 85%, 670px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#comments #commentForm textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+}
+#comments #commentForm button {
+  width: clamp(75px, 10vw, 100px);
+  height: 30px;
+  align-self: flex-end;
+}
+#comments #allComments {
+  list-style-type: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#comments .replies:has(li) {
+  list-style-type: none;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  border-left: 2px solid rgb(175, 175, 175);
+}
+#comments .comment, #comments .replyComment {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.26);
+}
+#comments .comment .commentAuthor, #comments .replyComment .commentAuthor {
+  font-weight: bold;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#comments .comment .commentAuthor .dateTime, #comments .replyComment .commentAuthor .dateTime {
+  font-weight: normal;
+  font-size: 0.75rem;
+  color: gray;
+}
+#comments .comment .commentContent, #comments .replyComment .commentContent {
+  margin-top: 10px;
+}
+#comments .comment .commentContent .commentText, #comments .replyComment .commentContent .commentText {
+  white-space: pre;
+  text-wrap: auto;
+  word-break: break-all;
+  overflow-y: scroll;
+}
+#comments .comment .commentContent .commentText .deletedComment, #comments .replyComment .commentContent .commentText .deletedComment {
+  font-style: italic;
+  color: rgb(100, 98, 98);
+}
+#comments .replyComment {
+  background-color: rgb(245, 242, 242);
+  margin-top: 8px;
+}
+
+#postForm, #editForm, #deleteForm, #replyForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+#postForm label, #editForm label, #deleteForm label, #replyForm label {
+  font-size: 1.3rem;
+}
+#postForm #title, #editForm #title, #deleteForm #title, #replyForm #title {
+  height: 40px;
+  width: min(500px, 55vw);
+  font-size: 1.1rem;
+  text-indent: 10px;
+}
+#postForm #title::placeholder, #editForm #title::placeholder, #deleteForm #title::placeholder, #replyForm #title::placeholder {
+  color: rgb(173, 173, 173);
+  font-size: 0.9rem;
+}
+#postForm #text, #editForm #text, #deleteForm #text, #replyForm #text {
+  width: min(700px, 70vw);
+  height: 600px;
+  resize: none;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px;
+}
+#postForm .formfield:not(.postfield), #editForm .formfield:not(.postfield), #deleteForm .formfield:not(.postfield), #replyForm .formfield:not(.postfield) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+#postForm .postfield, #editForm .postfield, #deleteForm .postfield, #replyForm .postfield {
+  background-color: white;
+}
+#postForm .postfield #editor, #editForm .postfield #editor, #deleteForm .postfield #editor, #replyForm .postfield #editor {
+  height: 500px;
+}
+#postForm .buttons, #editForm .buttons, #deleteForm .buttons, #replyForm .buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+#postForm .btn, #editForm .btn, #deleteForm .btn, #replyForm .btn, #postForm #cancel, #editForm #cancel, #deleteForm #cancel, #replyForm #cancel {
+  font-family: "Calibri";
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  box-sizing: content-box;
+  width: min(150px, 20vw);
+  line-height: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: rgb(236, 236, 236);
+  cursor: pointer;
+}
+#postForm .btn:hover, #editForm .btn:hover, #deleteForm .btn:hover, #replyForm .btn:hover, #postForm #cancel:hover, #editForm #cancel:hover, #deleteForm #cancel:hover, #replyForm #cancel:hover {
+  background-color: lightgray;
+}
+#postForm .error, #editForm .error, #deleteForm .error, #replyForm .error {
+  color: red;
+}
+
+#editForm, #deleteForm, #replyForm {
+  padding: 20px;
+}
+#editForm #text, #deleteForm #text, #replyForm #text {
+  width: min(700px, 60vw);
+}
+#editForm #comment, #deleteForm #comment, #replyForm #comment {
+  width: min(650px, 58vw);
+  height: 150px;
+  resize: none;
+}
+
+#registerForm {
+  width: min(450px, 40vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+#registerForm .formfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#registerForm .formfield div {
+  width: 100%;
+}
+#registerForm .formfield div input {
+  width: 100%;
+  height: 30px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: 1px solid rgb(143, 142, 142);
+  text-indent: 5px;
+}
+#registerForm .formfield .error {
+  color: red;
+}
+#registerForm button {
+  align-self: center;
+  width: 125px;
+  height: 35px;
+}
+#registerForm .succes {
+  align-self: center;
+  font-weight: bold;
+}
+
+#registerForm:has(.error) {
+  gap: 3px;
+}
+#registerForm:has(.error) button {
+  margin-top: 5px;
+}
+#registerForm:has(.error) .formfield:not(:has(.error)) {
+  margin-bottom: 19px;
+}
+
+#settingsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#settingsForm .setting {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2px;
+  align-items: center;
+}
+#settingsForm #save {
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+}
+#settingsForm .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+#settingsForm {
+  /* Hide default HTML checkbox */
+}
+#settingsForm .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#settingsForm {
+  /* The slider */
+}
+#settingsForm .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+#settingsForm .slider:before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+#settingsForm input:checked + .slider {
+  background-color: #bc63e6;
+}
+#settingsForm input:focus + .slider {
+  box-shadow: 0 0 1px #bc63e6;
+}
+#settingsForm input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas: "header header" "content nav";
+  grid-template-columns: 1fr clamp(150px, 18vw, 280px);
+  grid-template-rows: 100px 1fr;
+  grid-gap: 0px;
+}
+
+.main {
+  grid-area: content;
+  background-color: #EDE4EC;
+  padding: 20px;
+}
+
+.shadow {
+  cursor: default;
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#backArrow {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+}
+
+nav {
+  display: block;
+}
+
+.ql-size-small {
+  font-size: 0.7em;
+}
+
+.ql-size-large {
+  font-size: 1.5em;
+}
+
+.ql-size-huge {
+  font-size: 2em;
+}
+
+@media screen and (max-width: 520px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    flex-direction: column;
+    padding: 10px 3vw;
+  }
+  header h1 {
+    font-size: 2em;
+  }
+  header .login {
+    text-align: center;
+  }
+  header .login #loginForm {
+    justify-content: center;
+  }
+  header .login #loginForm .loginInputs .formfield {
+    width: 100%;
+  }
+  header .login #loginForm .loginInputs .formfield input {
+    width: 100%;
+  }
+  header .login #loginForm .loginInputs {
+    justify-content: center;
+    width: clamp(130px, 50vw, 220px);
+  }
+  header .logoName .logo {
+    width: 80px;
+    height: 80px;
+  }
+  header .logout {
+    justify-content: center;
+  }
+  .main {
+    height: 100%;
+  }
+  nav {
+    display: none;
+    position: relative;
+    width: 100vw;
+  }
+  nav #search #searchForm {
+    margin: 5px 0;
+  }
+  nav #search #searchForm input {
+    width: clamp(100px, 60vw, 400px);
+  }
+  nav #sort #sortForm .formField {
+    width: 50%;
+  }
+  nav #sort #sortForm button {
+    width: 40%;
+  }
+  nav #lastVisit {
+    display: none;
+  }
+  nav #sidebarButtons {
+    height: fit-content;
+  }
+  #hideButton {
+    display: block;
+    text-align: center;
+    background-color: #CEBEE3;
+  }
+  #hideButton img {
+    width: 35px;
+    height: 35px;
+  }
+  .post, .fullPost > .post {
+    width: 80vw;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
